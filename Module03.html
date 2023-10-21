@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Program</title>
+</head>
+<body>
+
+<script>
+    // Task 1: Display even/odd numbers from 0 to 10
+    for (let i = 0; i <= 10; i++) {
+        if (i % 2 === 0) {
+            document.write(`Count ${i} is even<br>`);
+        } else {
+            document.write(`Count ${i} is odd<br>`);
+        }
+    }
+
+    // Task 2: Ask the user for a number and use a do-while loop
+    let myNum;
+    do {
+        myNum = parseInt(prompt("Enter a number between 5 and 20:"));
+    } while (myNum < 5 || myNum > 20);
+
+    let counter = 1;
+    do {
+        document.write(`Loop counter: ${counter}<br>`);
+        counter++;
+    } while (counter <= myNum);
+
+    // Task 3: Store subjects in an array and display them
+    let subjects = [
+        "Accounting",
+        "Algebra",
+        "Programming",
+        "Art",
+        "Data Analytics"
+    ];
+
+    // Display the array values using forEach()
+    document.write("<br>Subjects using forEach():<br>");
+    subjects.forEach(function (subject) {
+        document.write(`${subject}<br>`);
+    });
+
+    // Display the array values separated by commas using one statement
+    document.write("<br>Subjects separated by commas:<br>");
+    document.write(subjects.join(', '));
+</script>
+
+</body>
+</html>
