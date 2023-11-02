@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fictional Dog Information</title>
+</head>
+<body>
+    <h1>My Favorite Fictional Dog</h1>
+    <p id="dog-info"></p>
+
+    <script>
+        // JavaScript code for creating the myDog object and displaying the values
+        var myDog = {
+            name: "Scooby-Doo",
+            breed: "Great Dane",
+            color: "Brown with black spots",
+            owner: "Shaggy Rogers",
+            series: "Scooby-Doo, Where Are You!",
+            mySound: "Ruh-roh! I sound a bit scared and goofy, but I'm always ready for a Scooby Snack!",
+            introduce: function() {
+                return "Hello, I'm " + this.name + ", a " + this.color + " " + this.breed + ". I'm owned by " + this.owner + " and I star in the series '" + this.series + "'. " + this.mySound;
+            }
+        };
+
+        // Display the dog's introduction on the web page
+        var dogInfoElement = document.getElementById("dog-info");
+        dogInfoElement.textContent = myDog.introduce();
+    </script>
+</body>
+</html>
