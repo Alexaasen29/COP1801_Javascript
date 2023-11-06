@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fictional Dog Information</title>
+</head>
+<body>
+    <h1>My Favorite Fictional Dogs</h1>
+    <p>Select a dog from the list:</p>
+    <select id="dog-selector">
+        <option value="Scooby-Doo">Scooby-Doo</option>
+        <option value="Pluto">Pluto</option>
+        <!-- Add more dog options as needed -->
+    </select>
+    <button onclick="displaySelectedDog()">Show Dog Info</button>
+    <p id="dog-info"></p>
+
+    <script>
+        // Constructor function for creating dog objects
+        function Dog(name, breed, color, owner, series, mySound, canTalk) {
+            this.name = name;
+            this.breed = breed;
+            this.color = color;
+            this.owner = owner;
+            this.series = series;
+            this.mySound = mySound;
+            this.canTalk = canTalk;
+            this.myGreeting = function () {
+                if (this.canTalk) {
+                    return "Hello, I'm " + this.name + ". I can talk! " + this.mySound;
+                } else {
+                    return "Hello, I'm " + this.name + ". I cannot talk. " + this.mySound;
+                }
+            };
+        }
+
+        // Create dog objects using the constructor
+        var scoobyDoo = new Dog("Scooby-Doo", "Great Dane", "Brown with black spots", "Shaggy Rogers", "Scooby-Doo, Where Are You!", "Ruh-roh! I sound a bit scared and goofy, but I'm always ready for a Scooby Snack!", true);
+        var pluto = new Dog("Pluto", "Bloodhound", "Orange", "Mickey Mouse", "Various Disney cartoons", "Woof woof! I'm a loyal and friendly dog.", false);
+
+        // Function to display selected dog's info
+        function displaySelectedDog() {
+            var selectedDogName = document.getElementById("dog-selector").value;
+            var dogInfoElement = document.getElementById("dog-info");
+            var selectedDog;
+
+            // Check which dog is selected
+            if (selectedDogName === "Scooby-Doo") {
+                selectedDog = scoobyDoo;
+            } else if (selectedDogName === "Pluto") {
+                selectedDog = pluto;
+            }
+
+            // Display dog info or error message
+            if (selectedDog) {
+                dogInfoElement.textContent = selectedDog.myGreeting();
+            } else {
+                dogInfoElement.textContent = "Error: The selected dog does not exist in the list.";
+            }
+        }
+    </script>
+</body>
+</html>
